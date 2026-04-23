@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groundwater Monitor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <!-- Заголовок -->
+    <div class="header">
+        <h1>Измерительный модуль грунтовых вод</h1>
+        <p>Мониторинг уровня воды, влажности и температуры</p>
+    </div>
+
+    <!-- Текущие показания -->
+    <div class="cards">
+        <div class="card">
+            <h3>Уровень воды</h3>
+            <div class="value" id="level">--</div>
+            <div class="unit">сантиметры (см)</div>
+        </div>
+        <div class="card">
+            <h3>Влажность воздуха</h3>
+            <div class="value" id="humidity">--</div>
+            <div class="unit">проценты (%)</div>
+        </div>
+        <div class="card">
+            <h3>Температура воды</h3>
+            <div class="value" id="water_temp">--</div>
+            <div class="unit">градусы Цельсия (°C)</div>
+        </div>
+        <div class="card">
+            <h3>Температура воздуха</h3>
+            <div class="value" id="air_temp">--</div>
+            <div class="unit">градусы Цельсия (°C)</div>
+        </div>
+    </div>
+
+    <!-- Графики -->
+    <div class="charts-grid">
+        <div class="chart-container">
+            <h3>Уровень грунтовых вод</h3>
+            <canvas id="levelChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Влажность воздуха</h3>
+            <canvas id="humidityChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Температура воды</h3>
+            <canvas id="waterTempChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Температура воздуха</h3>
+            <canvas id="airTempChart"></canvas>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Данные обновляются автоматически каждые 2 секунды | Работает в реальном времени</p>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
